@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nova Camiseta – Camisa Dez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="app-body">
+
+  <nav class="nav nav--app">
+    <a th:href="@{/}" class="nav__logo">Camisa<span>Dez</span></a>
+    <a th:href="@{/camisetas}" class="nav__back">← Ver lista</a>
+  </nav>
+
+  <main class="form-main">
+    <div class="form-card">
+      <div class="form-card__header">
+        <h1>Nova camiseta</h1>
+        <p>Preencha os dados da camiseta para adicionar à sua coleção.</p>
+      </div>
+
+      <form action="#" th:action="@{/camiseta}" method="post" th:object="${camiseta}" class="idea-form">
+
+        <div class="form-group">
+          <label for="nomeTime">Nome do time</label>
+          <input type="text" id="nomeTime" name="nomeTime" th:field="*{nomeTime}"
+                 placeholder="Ex: Santos FC" required/>
+        </div>
+
+        <div class="form-group">
+          <label for="liga">Liga que o time faz parte</label>
+          <input type="text" id="liga" name="liga" th:field="*{liga}"
+                 placeholder="Ex: Campeonato Brasileiro" required/>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="anoCamiseta">Ano da camiseta</label>
+            <input type="number" id="anoCamiseta" name="anoCamiseta" th:field="*{anoCamiseta}"
+                   min="1900" max="2100" placeholder="Ex: 2011" required/>
+          </div>
+
+          <div class="form-group">
+            <label for="nomeJogador">Nome de jogador</label>
+            <input type="text" id="nomeJogador" name="nomeJogador" th:field="*{nomeJogador}"
+                   placeholder="Ex: Neymar"/>
+          </div>
+
+          <div class="form-group">
+            <label for="preco">Preço</label>
+            <input type="number" id="preco" name="preco" th:field="*{preco}"
+                   min="0" step="0.01" placeholder="Ex: 249.90" required/>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <a th:href="@{/camisetas}" class="btn btn--ghost">Cancelar</a>
+          <a th:href="@{/camisetas}" class="btn btn--outline">Ver lista</a>
+          <button type="submit" class="btn btn--primary">Salvar camiseta</button>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

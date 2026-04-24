@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Camisa Dez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav__logo">Camisa<span>Dez</span></div>
+    <a th:href="@{/camisetas}" class="nav__cta">Ver coleção →</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero__eyebrow">Coleção de camisetas de futebol</div>
+    <h1 class="hero__title">
+      Cadastre suas<br/>
+      <em>camisetas de futebol</em><br/>
+      em um só lugar.
+    </h1>
+    <p class="hero__sub">Organize sua coleção registrando time, liga, ano, jogador e preço de cada camiseta cadastrada.</p>
+    <a th:href="@{/camisetas/new}" class="btn btn--primary">Cadastrar camiseta</a>
+    <div class="hero__scroll">↓</div>
+  </section>
+
+  <section class="features">
+    <div class="features__label">O que você pode registrar</div>
+    <div class="features__grid">
+      <div class="feature-card" style="--delay:0s">
+        <div class="feature-card__icon">⚽</div>
+        <h3>Informações do time</h3>
+        <p>Cadastre o nome do clube e a liga em que ele joga para manter sua coleção organizada.</p>
+      </div>
+      <div class="feature-card" style="--delay:.1s">
+        <div class="feature-card__icon">👕</div>
+        <h3>Detalhes da camiseta</h3>
+        <p>Registre o ano da camiseta e o nome do jogador relacionado à peça da coleção.</p>
+      </div>
+      <div class="feature-card" style="--delay:.2s">
+        <div class="feature-card__icon">💰</div>
+        <h3>Controle de preço</h3>
+        <p>Guarde o valor pago ou estimado de cada camiseta para acompanhar sua coleção.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-section__inner">
+      <h2>Comece cadastrando sua primeira camiseta.</h2>
+      <a th:href="@{/camisetas/new}" class="btn btn--outline">Novo cadastro</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Camisa Dez — sistema simples com Java, Spring Boot, Thymeleaf e PostgreSQL.</p>
+  </footer>
+
+  <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

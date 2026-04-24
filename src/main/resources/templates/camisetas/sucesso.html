@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro realizado – Camisa Dez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="app-body">
+  <nav class="nav nav--app">
+    <a th:href="@{/}" class="nav__logo">Camisa<span>Dez</span></a>
+    <a th:href="@{/camisetas}" class="nav__back">← Ver coleção</a>
+  </nav>
+
+  <main class="form-main">
+    <div class="form-card">
+      <div class="form-card__header">
+        <h1>Camiseta cadastrada com sucesso!</h1>
+        <p>O item foi salvo na sua coleção.</p>
+      </div>
+      <div class="form-actions">
+        <a th:href="@{/camisetas/new}" class="btn btn--ghost">Cadastrar outra</a>
+        <a th:href="@{/camisetas}" class="btn btn--primary">Ver lista de camisetas</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

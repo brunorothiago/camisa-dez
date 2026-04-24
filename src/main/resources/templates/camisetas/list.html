@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minhas Camisetas – Camisa Dez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="app-body">
+
+  <nav class="nav nav--app">
+    <a th:href="@{/}" class="nav__logo">Camisa<span>Dez</span></a>
+    <a th:href="@{/camisetas/new}" class="btn btn--primary btn--sm">+ Nova camiseta</a>
+  </nav>
+
+  <main class="app-main">
+    <div class="page-header">
+      <h1>Minhas camisetas</h1>
+      <p th:text="${camisetas.size()} + ' camisetas cadastradas'"></p>
+    </div>
+
+    <div class="table-wrap">
+      <table class="posts-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Liga</th>
+            <th>Ano</th>
+            <th>Jogador</th>
+            <th>Preço</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="camiseta : ${camisetas}"
+              th:data-href="@{/camisetas/{id}(id=${camiseta.id})}"
+              class="tr--clickable">
+            <td class="td--title" th:text="${camiseta.nomeTime}"></td>
+            <td>
+              <span class="badge badge--liga" th:text="${camiseta.liga}"></span>
+            </td>
+            <td th:text="${camiseta.anoCamiseta}"></td>
+            <td th:text="${camiseta.nomeJogador}"></td>
+            <td th:text="'R$ ' + ${#numbers.formatDecimal(camiseta.preco, 1, 'POINT', 2, 'COMMA')}"></td>
+          </tr>
+          <tr th:if="${camisetas.isEmpty()}">
+            <td colspan="5" class="td--empty">
+              Nenhuma camiseta cadastrada ainda. <a th:href="@{/camisetas/new}">Cadastrar primeira camiseta →</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <script th:src="@{/js/main.js}"></script>
+</body>
+</html>

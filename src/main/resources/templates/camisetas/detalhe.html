@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detalhe da Camiseta – Camisa Dez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body class="app-body">
+
+  <nav class="nav nav--app">
+    <a th:href="@{/}" class="nav__logo">Camisa<span>Dez</span></a>
+    <a th:href="@{/camisetas}" class="nav__back">← Voltar</a>
+  </nav>
+
+  <main class="form-main">
+    <div class="form-card">
+      <div class="form-card__header">
+        <div class="detalhe__badges">
+          <span class="badge badge--liga" th:text="${camiseta.liga}"></span>
+          <span class="status-dot status--colecao">Na coleção</span>
+        </div>
+        <h1 th:text="${camiseta.nomeTime}"></h1>
+        <p class="detalhe__data">
+          👕 Ano da camiseta: <strong th:text="${camiseta.anoCamiseta}"></strong>
+        </p>
+      </div>
+
+      <div class="detalhe__ideia">
+        <label>Jogador</label>
+        <p th:text="${camiseta.nomeJogador}"></p>
+      </div>
+
+      <div class="detalhe__ideia">
+        <label>Preço</label>
+        <p th:text="'R$ ' + ${#numbers.formatDecimal(camiseta.preco, 1, 'POINT', 2, 'COMMA')}"></p>
+      </div>
+
+      <div class="form-actions">
+        <a th:href="@{/camisetas}" class="btn btn--ghost">← Voltar para lista</a>
+        <a th:href="@{/camisetas/new}" class="btn btn--primary">Cadastrar outra</a>
+      </div>
+    </div>
+  </main>
+
+  <script th:src="@{/js/main.js}"></script>
+</body>
+</html>
