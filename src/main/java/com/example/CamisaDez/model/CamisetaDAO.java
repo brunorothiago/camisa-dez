@@ -1,42 +1,35 @@
 package com.example.CamisaDez.model;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
-import javax.sql.DataSource;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
-import jakarta.annotation.PostConstruct;
 
 @Repository
 public class CamisetaDAO {
 
-    @Autowired
-    DataSource dataSource;
+    private final JdbcTemplate jdbc;
 
-    JdbcTemplate jdbc;
-
-    @PostConstruct
-    private void initialize() {
-        jdbc = new JdbcTemplate(dataSource);
+    public CamisetaDAO(JdbcTemplate jdbc) {
+        this.jdbc = jdbc;
     }
 
     public void inserirCamiseta(Camiseta camiseta) {
-        String sql = "INSERT INTO camisetas (nome_time, liga, ano_camiseta, nome_jogador, preco)" +
-                     " VALUES (?,?,?,?,?)";
-        Object[] obj = new Object[5];
-        obj[0] = camiseta.getNomeTime();
-        obj[1] = camiseta.getLiga();
-        obj[2] = camiseta.getAnoCamiseta();
-        obj[3] = camiseta.getNomeJogador();
-        obj[4] = camiseta.getPreco();
+        String sql = "INSERT INTO camisetas (id, nome_time, liga, ano_camiseta, nome_jogador, preco)" +
+                     " VALUES (?,?,?,?,?,?)";
+        Object[] obj = new Object[6];
+        obj[0] = UUID.randomUUID();
+        obj[1] = camiseta.getNomeTime();
+        obj[2] = camiseta.getLiga();
+        obj[3] = camiseta.getAnoCamiseta();
+        obj[4] = camiseta.getNomeJogador();
+        obj[5] = camiseta.getPreco();
         jdbc.update(sql, obj);
     }
 
     public Camiseta mostrarCamiseta(String uuid){
-        String sql = "SELECT * FROM camisetas WHERE id=?::uuid";
+        String sql = "SELECT * FROM camisetas WHERE id = CAST(? AS UUID)";
         return Camiseta.converter(jdbc.queryForMap(sql, uuid));
     }
 

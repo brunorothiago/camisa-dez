@@ -51,6 +51,6 @@ public class CamisetaController {
     public String salvarCamiseta(@ModelAttribute Camiseta camiseta) {
         CamisetaService cs = context.getBean(CamisetaService.class);
         cs.inserirCamiseta(camiseta);
-        return "camisetas/sucesso";
+        return "redirect:/camisetas";
     }
 }
