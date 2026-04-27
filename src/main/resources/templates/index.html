@@ -3,59 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Camisa Dez</title>
+  <title>Camisa10</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
   <nav class="nav">
-    <div class="nav__logo">Camisa<span>Dez</span></div>
-    <a th:href="@{/camisetas}" class="nav__cta">Ver coleção →</a>
+    <div class="nav__logo">Camisa10 <span class="nav__emoji">👕</span></div>
+    <a th:href="@{/camisetas}" class="nav__cta btn btn--outline">Ver coleção →</a>
   </nav>
 
-  <section class="hero">
-    <div class="hero__eyebrow">Coleção de camisetas de futebol</div>
-    <h1 class="hero__title">
-      Cadastre suas<br/>
-      <em>camisetas de futebol</em><br/>
-      em um só lugar.
-    </h1>
-    <p class="hero__sub">Organize sua coleção registrando time, liga, ano, jogador e preço de cada camiseta cadastrada.</p>
-    <a th:href="@{/camisetas/new}" class="btn btn--primary">Cadastrar camiseta</a>
-    <div class="hero__scroll">↓</div>
+  <section class="hero section-bg section-bg--hero">
+    <div class="section-overlay">
+      <h1 class="hero__title">
+        Cadastre suas<br/>
+        camisetas de futebol<br/>
+        em um só lugar.
+      </h1>
+
+      <p class="hero__sub">
+        Organize sua coleção registrando time, liga, ano, jogador e preço de cada camiseta cadastrada.
+      </p>
+
+      <a th:href="@{/camisetas/new}" class="btn btn--primary">Cadastrar camiseta</a>
+    </div>
   </section>
 
-  <section class="features">
-    <div class="features__label">O que você pode registrar</div>
-    <div class="features__grid">
-      <div class="feature-card" style="--delay:0s">
-        <div class="feature-card__icon">⚽</div>
-        <h3>Informações do time</h3>
-        <p>Cadastre o nome do clube e a liga em que ele joga para manter sua coleção organizada.</p>
-      </div>
-      <div class="feature-card" style="--delay:.1s">
-        <div class="feature-card__icon">👕</div>
-        <h3>Detalhes da camiseta</h3>
-        <p>Registre o ano da camiseta e o nome do jogador relacionado à peça da coleção.</p>
-      </div>
-      <div class="feature-card" style="--delay:.2s">
-        <div class="feature-card__icon">💰</div>
-        <h3>Controle de preço</h3>
-        <p>Guarde o valor pago ou estimado de cada camiseta para acompanhar sua coleção.</p>
+  <section class="features section-bg section-bg--features">
+    <div class="section-overlay">
+      <div class="features__label">O que você pode registrar</div>
+
+      <div class="features__grid">
+        <div class="feature-card" style="--delay:0s">
+          <div class="feature-card__icon">⚽</div>
+          <h3>Informações do time</h3>
+          <p>Cadastre o nome do clube e a liga em que ele joga para manter sua coleção organizada.</p>
+        </div>
+
+        <div class="feature-card" style="--delay:.1s">
+          <div class="feature-card__icon">👕</div>
+          <h3>Detalhes da camiseta</h3>
+          <p>Registre o ano da camiseta e o nome do jogador relacionado à peça da coleção.</p>
+        </div>
+
+        <div class="feature-card" style="--delay:.2s">
+          <div class="feature-card__icon">💰</div>
+          <h3>Controle de preço</h3>
+          <p>Guarde o valor pago ou estimado de cada camiseta para acompanhar sua coleção.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="cta-section__inner">
-      <h2>Comece cadastrando sua primeira camiseta.</h2>
-      <a th:href="@{/camisetas/new}" class="btn btn--outline">Novo cadastro</a>
+  <section class="cta-section section-bg section-bg--cta">
+    <div class="section-overlay">
+      <div class="cta-section__inner">
+        <h2>Comece cadastrando sua primeira camiseta.</h2>
+        <a th:href="@{/camisetas/new}" class="btn btn--primary">Novo cadastro</a>
+      </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p>Camisa Dez — sistema simples com Java, Spring Boot, Thymeleaf e PostgreSQL.</p>
+    <p>Camisa10 — sistema simples com Java, Spring Boot, Thymeleaf e PostgreSQL.</p>
   </footer>
 
   <script th:src="@{/js/main.js}"></script>
