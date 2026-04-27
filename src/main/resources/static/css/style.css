@@ -21,20 +21,6 @@
   --font-body: 'Open Sans', Arial, sans-serif;
 }
 
-/* TESTE VISUAL: se aparecer uma linha vermelha no topo, o CSS novo carregou */
-html::before {
-  content: "CSS NOVO CARREGADO";
-  display: block;
-  width: 100%;
-  padding: 8px;
-  background: red;
-  color: white;
-  font-family: Arial, sans-serif;
-  font-weight: 800;
-  text-align: center;
-  z-index: 999999;
-  position: relative;
-}
 
 html {
   scroll-behavior: smooth;
