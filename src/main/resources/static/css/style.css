@@ -682,3 +682,27 @@ a {
     min-width: 720px;
   }
 }
+
+.section-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.section-bg--hero {
+  background-image:
+    linear-gradient(rgba(6, 78, 59, 0.76), rgba(6, 78, 59, 0.76)),
+    url("/img/img1.jpeg");
+}
+
+.section-bg--features {
+  background-image:
+    linear-gradient(rgba(6, 78, 59, 0.82), rgba(6, 78, 59, 0.82)),
+    url("/img/img2.jpg");
+}
+
+.section-bg--cta {
+  background-image:
+    linear-gradient(rgba(6, 78, 59, 0.78), rgba(6, 78, 59, 0.78)),
+    url("/img/img3.jpeg");
+}
