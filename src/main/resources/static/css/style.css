@@ -21,6 +21,21 @@
   --font-body: 'Open Sans', Arial, sans-serif;
 }
 
+/* TESTE VISUAL: se aparecer uma linha vermelha no topo, o CSS novo carregou */
+html::before {
+  content: "CSS NOVO CARREGADO";
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: red;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-weight: 800;
+  text-align: center;
+  z-index: 999999;
+  position: relative;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -80,28 +95,38 @@ a {
   color: var(--red);
 }
 
-/* ---------- BUTTONS ---------- */
+/* ---------- BUTTONS - FORÇADO ---------- */
 
 .btn,
-button.btn,
 a.btn,
-input[type="submit"].btn {
+button.btn,
+input.btn,
+input[type="submit"],
+button[type="submit"],
+.form-actions a,
+.form-actions button,
+.nav .btn,
+.nav__cta {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: .45rem !important;
 
-  padding: .9rem 1.9rem !important;
   min-width: 180px !important;
+  padding: .9rem 1.9rem !important;
 
   border-radius: 0 !important;
   -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+
   appearance: none !important;
   -webkit-appearance: none !important;
 
-  border: 3px solid var(--blue-dark) !important;
   background: var(--blue) !important;
+  background-color: var(--blue) !important;
   color: var(--red) !important;
+
+  border: 3px solid var(--blue-dark) !important;
+  outline: none !important;
 
   font-family: var(--font-body) !important;
   font-size: .9rem !important;
@@ -109,17 +134,26 @@ input[type="submit"].btn {
   text-transform: uppercase !important;
   letter-spacing: .05em !important;
   text-align: center !important;
+  text-decoration: none !important;
 
   box-shadow: 6px 6px 0 var(--green) !important;
+
   cursor: pointer !important;
   transition: all .2s ease !important;
 }
 
 .btn:hover,
-button.btn:hover,
 a.btn:hover,
-input[type="submit"].btn:hover {
+button.btn:hover,
+input.btn:hover,
+input[type="submit"]:hover,
+button[type="submit"]:hover,
+.form-actions a:hover,
+.form-actions button:hover,
+.nav .btn:hover,
+.nav__cta:hover {
   background: var(--blue-dark) !important;
+  background-color: var(--blue-dark) !important;
   color: var(--red) !important;
   border-color: var(--red) !important;
   box-shadow: 6px 6px 0 var(--green-dark) !important;
@@ -128,18 +162,13 @@ input[type="submit"].btn:hover {
 
 .btn--primary,
 .btn--outline,
-.btn--ghost {
+.btn--ghost,
+.btn--sm {
+  border-radius: 0 !important;
   background: var(--blue) !important;
+  background-color: var(--blue) !important;
   color: var(--red) !important;
   border-color: var(--blue-dark) !important;
-}
-
-.btn--primary:hover,
-.btn--outline:hover,
-.btn--ghost:hover {
-  background: var(--blue-dark) !important;
-  color: var(--red) !important;
-  border-color: var(--red) !important;
 }
 
 .btn--sm {
@@ -703,11 +732,18 @@ input[type="submit"].btn:hover {
   }
 
   .btn,
-  button.btn,
   a.btn,
-  input[type="submit"].btn {
+  button.btn,
+  input.btn,
+  input[type="submit"],
+  button[type="submit"],
+  .form-actions a,
+  .form-actions button,
+  .nav .btn,
+  .nav__cta {
     width: 100% !important;
     min-width: 0 !important;
+    border-radius: 0 !important;
   }
 
   .table-wrap {
